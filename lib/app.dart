@@ -11,13 +11,15 @@ class Pokedex extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Pokedex',
       theme: ThemeData(
+        primaryColor: Colors.teal,
+        accentColor: Colors.tealAccent,
         visualDensity: VisualDensity.adaptivePlatformDensity,
         appBarTheme: AppBarTheme(
-          backgroundColor: Colors.teal,
           centerTitle: true,
         ),
         floatingActionButtonTheme: FloatingActionButtonThemeData(
           backgroundColor: Colors.teal,
+          foregroundColor: Colors.tealAccent,
         ),
       ),
       home: HomePage(),

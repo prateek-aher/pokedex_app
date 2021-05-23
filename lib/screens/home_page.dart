@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../models/pokemon_model.dart';
 import '../services/pokemon_service.dart';
 import 'grid.dart';
 import 'list.dart';
@@ -13,14 +12,12 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   PokemonService service;
-  bool isListView = false;
-  // Future<List<Pokemon>> pokemonList;
+  bool isListMode = false;
 
   @override
   void initState() {
     super.initState();
-    service = PokemonService();
-    // pokemonList = service.fetchAllPokemons();
+    service = new PokemonService();
   }
 
   @override
@@ -31,11 +28,12 @@ class _HomePageState extends State<HomePage> {
         elevation: 8,
         actions: [
           IconButton(
-              tooltip: isListView ? 'Show grid' : 'Show list',
-              icon: Icon(isListView ? Icons.grid_view : Icons.view_list),
+              tooltip: isListMode ? 'Show list' : 'Show grid',
+              icon: Icon(
+                  isListMode ? Icons.grid_view : Icons.format_list_bulleted),
               onPressed: () {
                 setState(() {
-                  isListView = !isListView;
+                  isListMode = !isListMode;
                 });
               })
         ],
@@ -44,7 +42,6 @@ class _HomePageState extends State<HomePage> {
         onPressed: () {},
         child: Icon(Icons.filter_alt_outlined),
       ),
-      drawer: Drawer(),
       body: Center(
         child: FutureBuilder(
           future: service.fetchAllPokemons(),
@@ -54,7 +51,7 @@ class _HomePageState extends State<HomePage> {
             } else {
               if (snapshot.hasError) print(snapshot.error);
 
-              return isListView
+              return isListMode
                   ? buildPokemonList(context, snapshot)
                   : buildPokemonGrid(context, snapshot);
             }
