@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../services/pokemon_service.dart';
+import '../../services/pokemon_service.dart';
 import 'grid.dart';
 import 'list.dart';
 
@@ -48,13 +48,13 @@ class _HomePageState extends State<HomePage> {
           builder: (context, snapshot) {
             if (snapshot.connectionState != ConnectionState.done) {
               return Center(child: CircularProgressIndicator());
-            } else {
-              if (snapshot.hasError) print(snapshot.error);
-
+            } else if (snapshot.hasError) {
+              print(snapshot.error);
+              return null;
+            } else
               return isListMode
                   ? buildPokemonList(context, snapshot)
                   : buildPokemonGrid(context, snapshot);
-            }
           },
         ),
       ),

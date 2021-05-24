@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'screens/home_page.dart';
+import 'screens/Home/home_page.dart';
 
 class Pokedex extends StatelessWidget {
   const Pokedex({Key key}) : super(key: key);
@@ -14,7 +14,9 @@ class Pokedex extends StatelessWidget {
         primaryColor: Colors.teal,
         accentColor: Colors.tealAccent,
         visualDensity: VisualDensity.adaptivePlatformDensity,
+        scaffoldBackgroundColor: Colors.cyan,
         appBarTheme: AppBarTheme(
+          backgroundColor: Colors.teal,
           centerTitle: true,
         ),
         floatingActionButtonTheme: FloatingActionButtonThemeData(
