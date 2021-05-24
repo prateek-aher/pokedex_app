@@ -2,13 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:pokedex_app/screens/Details/pokemon_details.dart';
 import '../../models/pokemon_model.dart';
 
-Widget buildPokemonGrid(
-    BuildContext context, AsyncSnapshot<List<Pokemon>> snapshot) {
-  print(snapshot.connectionState);
+Widget buildPokemonGrid(BuildContext context, List<Pokemon> list) {
   return GridView.count(
     padding: const EdgeInsets.all(15.0),
     crossAxisCount: 2,
-    children: snapshot.data
+    children: list
         .map((poke) => Hero(
               tag: poke.id,
               child: Card(
