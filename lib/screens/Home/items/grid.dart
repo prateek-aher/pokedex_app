@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex_app/screens/Details/pokemon_details.dart';
-import '../../models/pokemon_model.dart';
+import '../../../models/pokemon_model.dart';
 
 Widget buildPokemonGrid(BuildContext context, List<Pokemon> list) {
   return GridView.count(

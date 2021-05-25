@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../Details/pokemon_details.dart';
-import '../../models/pokemon_model.dart';
+import '../../Details/pokemon_details.dart';
+import '../../../models/pokemon_model.dart';
 
 Widget buildPokemonList(BuildContext context, List<Pokemon> list) {
   return ListView.builder(
@@ -25,7 +25,7 @@ Widget buildPokemonList(BuildContext context, List<Pokemon> list) {
                 child: Container(
                   width: MediaQuery.of(context).size.width - 30,
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     // mainAxisSize: MainAxisSize.min,
                     children: [

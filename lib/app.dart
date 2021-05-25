@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex_app/Provider/list_properties_provider.dart';
+import 'package:provider/provider.dart';
 
 import 'screens/Home/home_page.dart';
 
@@ -24,7 +26,13 @@ class Pokedex extends StatelessWidget {
           foregroundColor: Colors.tealAccent,
         ),
       ),
-      home: HomePage(),
+      home: ChangeNotifierProvider(
+        create: (context) => ListProperties(
+          isListMode: false,
+          isSortAtoZ: true,
+        ),
+        child: HomePage(),
+      ),
     );
   }
 }
